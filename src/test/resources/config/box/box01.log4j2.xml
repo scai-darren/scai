@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!-- status=trace 可以查看log4j的装配过程，相关状态有："trace", "debug", "info", "warn", "error" and "fatal"；monitorInterval检查配置文件是否发生变化，若变化自动刷新配置，单位秒，0关闭此选项。 -->  
+<configuration status="debug" monitorInterval="30">
+    <properties>  
+        <property name="LogPattern">%date{yyyy-MM-dd HH:mm:ss.SSS} %level [%thread][%c][%X] - %msg%n%throwable</property>
+    </properties>  
+    <appenders>  
+        <!-- 定义控制台输出 。follow：当System.setOut或者System.setErr被调用后改变了标准输出后，ConsoleAppender也跟着改变；target输出目标为标准输出还是错误输出： "SYSTEM_OUT" or "SYSTEM_ERR"-->  
+        <Console name="ConsoleAppender" target="SYSTEM_OUT" follow="true">  
+            <PatternLayout pattern="${LogPattern}" />  
+        </Console>  
+    </appenders>  
+    <!-- asyncLogger是异步，logger是同步。asyncRoot与root只能选择一个 -->
+    <!-- name是logger的名字，若用"."做分隔，代表其父logger；logger的level级别：TRACE, DEBUG, INFO, WARN, ERROR, ALL or OFF，若没指定则默认为error；additivity子logger集成父logger的appender，默认值为true -->
+    <loggers>  
+        <!-- Root Logger -->
+		<root level="error" includeLocation="false">
+			<appender-ref ref="ConsoleAppender" />
+		</root>
+		<Logger name="org.springframework" level="INFO" additivity="false">
+			<AppenderRef ref="Console"/>
+		</Logger>
+		<Logger name="com.alibaba.dubbo" level="INFO" additivity="false">
+			<AppenderRef ref="Console"/>
+		</Logger>
+		<Logger name="org.eclipse.jetty" level="INFO" additivity="false">
+			<AppenderRef ref="Console"/>
+		</Logger>
+    </loggers>  
+</configuration>  

@@ -1,0 +1,441 @@
+2018-04-28 15:21:05.237 INFO [main][logger.LOLifecycle][{}] - =========================================================
+2018-04-28 15:21:05.253 INFO [main][logger.LOLifecycle][{}] - =========================================================
+2018-04-28 15:21:05.253 INFO [main][logger.LOLifecycle][{}] - =========================================================
+2018-04-28 15:21:05.253 INFO [main][logger.LOLifecycle][{}] - Initing box #box01#.
+2018-04-28 15:21:05.331 INFO [main][logger.LOLifecycle][{}] - Initing ResourceManager.
+2018-04-28 15:21:05.362 WARN [main][cn.openlo.resource.StaticResourceManagerUtil][{}] - !! configFileName:box01.log4j2.xml does not match any supported resourceManager !!
+2018-04-28 15:21:05.362 WARN [main][cn.openlo.resource.StaticResourceManagerUtil][{}] - !! configFileName:dependencymanager.properties does not match any supported resourceManager !!
+2018-04-28 15:21:05.362 WARN [main][cn.openlo.resource.StaticResourceManagerUtil][{}] - !! configFileName:lo-runtime.version does not match any supported resourceManager !!
+2018-04-28 15:21:05.362 WARN [main][cn.openlo.resource.StaticResourceManagerUtil][{}] - !! configFileName:Mbeans-descriptors.xml does not match any supported resourceManager !!
+2018-04-28 15:21:05.362 WARN [main][cn.openlo.resource.StaticResourceManagerUtil][{}] - !! configFileName:npwsk.properties does not match any supported resourceManager !!
+2018-04-28 15:21:05.362 WARN [main][cn.openlo.resource.StaticResourceManagerUtil][{}] - !! configFileName:panel.properties does not match any supported resourceManager !!
+2018-04-28 15:21:05.362 WARN [main][cn.openlo.resource.StaticResourceManagerUtil][{}] - !! configFileName:_lo_box_init.log4j2.xml does not match any supported resourceManager !!
+2018-04-28 15:21:05.362 INFO [main][logger.LOLifecycle][{}] - Initing Panel.
+2018-04-28 15:21:05.362 WARN [main][cn.openlo.resource.StaticResourceManagerUtil][{}] - !! resourceManager is already started !!
+2018-04-28 15:21:05.362 INFO [main][logger.LOLifecycle][{}] - Initing DependencyManager.
+2018-04-28 15:21:05.362 INFO [main][logger.LOLifecycle][{}] - Initing boxConfig.
+2018-04-28 15:21:05.362 INFO [main][logger.LOLifecycle][{}] - Box config key: #box/box01.properties#.
+2018-04-28 15:21:05.378 INFO [main][logger.LOLifecycle][{}] - Box config attrs: #BoxConfigAttrs [boxName=box01, boxHome=F:\workspace\ws_lo\lo-tutorial/src/test/resources/box01/, boxCategory=lo-tutorial-test, defaultCharset=UTF-8, enableMonitor=true, detailReportDelayInMins=30, gearList=[lo-tutorial], enableProtocolList=[HTTP, DUBBO], enableClientList=[HTTP, DUBBO], tcpHealthCheckEnable=true, tcpHealthCheckPort=5555, timeoutWaitingGearsStopped=10000, tempFilesKeepMaxHours=72, properties={box.executor.default.threads=10, box.executor.inner.threads=3, box.executor.async_call.scheduled=false, box.executor.default.queueSize=1024, box.executor.process.threads=20, box.version=1.0.0, box.enable.client.list=http,dubbo, box.executor.default.scheduled=true, box.executor.process.queueSize=1, box.default.charset=UTF-8, box.category=lo-tutorial-test, box.executor.process.scheduled=false, box.gear.list=lo-tutorial, box.executor.inner.queueSize=1024, box.executor.async_call.threads=10, box.timeout.waiting.gears.stopped=10000, box.enable.protocol.list=http,dubbo, box.name=box01, box.executor.inner.scheduled=true, box.executor.async_call.queueSize=2048}]#.
+2018-04-28 15:21:05.378 INFO [main][logger.LOLifecycle][{}] - Box #box01# inited.
+2018-04-28 15:21:05.378 INFO [main][logger.LOLifecycle][{}] - LifecycleBase. box01, from state: INITIALIZING to state: INITIALIZED.
+2018-04-28 15:21:05.378 INFO [main][logger.LOLifecycle][{}] - LifecycleBase. box01, from state: INITIALIZED to state: STARTING.
+2018-04-28 15:21:05.378 INFO [main][logger.LOLifecycle][{}] - Starting box #box01#.
+2018-04-28 15:21:05.393 INFO [main][com.alibaba.dubbo.common.logger.LoggerFactory][{}] - using logger: com.alibaba.dubbo.common.logger.slf4j.Slf4jLoggerAdapter
+2018-04-28 15:21:05.503 ERROR [main][logger.LOLifecycle][{}] - BoxMonitor register exception. Box name: #box01#.
+cn.openlo.exception.LOException: cn.openlo.resource.exception.ResourceNotSupportException: no ResourceManager found for zk://lo_console/box/box01
+	at cn.openlo.panel.DefaultPanel.set(DefaultPanel.java:166)
+	at cn.openlo.box.BoxMonitor.register(BoxMonitor.java:68)
+	at cn.openlo.box.BoxBase.startInternal(BoxBase.java:440)
+	at cn.openlo.common.LifecycleBase.start(LifecycleBase.java:173)
+	at cn.openlo.gear.test.GearContextLoader.loadContext(GearContextLoader.java:65)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:105)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:117)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:107)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:117)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:83)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:242)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:227)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:246)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:538)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:760)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:460)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:206)
+Caused by: cn.openlo.resource.exception.ResourceNotSupportException: no ResourceManager found for zk://lo_console/box/box01
+	at cn.openlo.resource.StaticResourceManagerUtil.getResourceManager(StaticResourceManagerUtil.java:339)
+	at cn.openlo.resource.StaticResourceManagerUtil.set(StaticResourceManagerUtil.java:239)
+	at cn.openlo.panel.DefaultPanel.set(DefaultPanel.java:163)
+	... 31 more
+2018-04-28 15:21:05.503 INFO [main][logger.LOLifecycle][{}] - Start Box log4j2.
+2018-04-28 15:26:59.175 INFO [main][logger.LOLifecycle][{}] - =========================================================
+2018-04-28 15:26:59.175 INFO [main][logger.LOLifecycle][{}] - =========================================================
+2018-04-28 15:26:59.175 INFO [main][logger.LOLifecycle][{}] - =========================================================
+2018-04-28 15:26:59.175 INFO [main][logger.LOLifecycle][{}] - Initing box #box01#.
+2018-04-28 15:26:59.237 INFO [main][logger.LOLifecycle][{}] - Initing ResourceManager.
+2018-04-28 15:26:59.253 WARN [main][cn.openlo.resource.StaticResourceManagerUtil][{}] - !! configFileName:box01.log4j2.xml does not match any supported resourceManager !!
+2018-04-28 15:26:59.253 WARN [main][cn.openlo.resource.StaticResourceManagerUtil][{}] - !! configFileName:dependencymanager.properties does not match any supported resourceManager !!
+2018-04-28 15:26:59.253 WARN [main][cn.openlo.resource.StaticResourceManagerUtil][{}] - !! configFileName:lo-runtime.version does not match any supported resourceManager !!
+2018-04-28 15:26:59.253 WARN [main][cn.openlo.resource.StaticResourceManagerUtil][{}] - !! configFileName:Mbeans-descriptors.xml does not match any supported resourceManager !!
+2018-04-28 15:26:59.253 WARN [main][cn.openlo.resource.StaticResourceManagerUtil][{}] - !! configFileName:npwsk.properties does not match any supported resourceManager !!
+2018-04-28 15:26:59.253 WARN [main][cn.openlo.resource.StaticResourceManagerUtil][{}] - !! configFileName:panel.properties does not match any supported resourceManager !!
+2018-04-28 15:26:59.253 WARN [main][cn.openlo.resource.StaticResourceManagerUtil][{}] - !! configFileName:_lo_box_init.log4j2.xml does not match any supported resourceManager !!
+2018-04-28 15:26:59.253 INFO [main][logger.LOLifecycle][{}] - Initing Panel.
+2018-04-28 15:26:59.253 WARN [main][cn.openlo.resource.StaticResourceManagerUtil][{}] - !! resourceManager is already started !!
+2018-04-28 15:26:59.253 INFO [main][logger.LOLifecycle][{}] - Initing DependencyManager.
+2018-04-28 15:26:59.253 INFO [main][logger.LOLifecycle][{}] - Initing boxConfig.
+2018-04-28 15:26:59.253 INFO [main][logger.LOLifecycle][{}] - Box config key: #box/box01.properties#.
+2018-04-28 15:26:59.268 INFO [main][logger.LOLifecycle][{}] - Box config attrs: #BoxConfigAttrs [boxName=box01, boxHome=F:\workspace\ws_lo\lo-tutorial/src/test/resources/box01/, boxCategory=lo-tutorial-test, defaultCharset=UTF-8, enableMonitor=true, detailReportDelayInMins=30, gearList=[lo-tutorial], enableProtocolList=[HTTP, DUBBO], enableClientList=[HTTP, DUBBO], tcpHealthCheckEnable=true, tcpHealthCheckPort=5555, timeoutWaitingGearsStopped=10000, tempFilesKeepMaxHours=72, properties={box.executor.default.threads=10, box.executor.inner.threads=3, box.executor.async_call.scheduled=false, box.executor.default.queueSize=1024, box.executor.process.threads=20, box.version=1.0.0, box.enable.client.list=http,dubbo, box.executor.default.scheduled=true, box.executor.process.queueSize=1, box.default.charset=UTF-8, box.category=lo-tutorial-test, box.executor.process.scheduled=false, box.gear.list=lo-tutorial, box.executor.inner.queueSize=1024, box.executor.async_call.threads=10, box.timeout.waiting.gears.stopped=10000, box.enable.protocol.list=http,dubbo, box.name=box01, box.executor.inner.scheduled=true, box.executor.async_call.queueSize=2048}]#.
+2018-04-28 15:26:59.268 INFO [main][logger.LOLifecycle][{}] - Box #box01# inited.
+2018-04-28 15:26:59.268 INFO [main][logger.LOLifecycle][{}] - LifecycleBase. box01, from state: INITIALIZING to state: INITIALIZED.
+2018-04-28 15:26:59.268 INFO [main][logger.LOLifecycle][{}] - LifecycleBase. box01, from state: INITIALIZED to state: STARTING.
+2018-04-28 15:26:59.268 INFO [main][logger.LOLifecycle][{}] - Starting box #box01#.
+2018-04-28 15:26:59.268 INFO [main][com.alibaba.dubbo.common.logger.LoggerFactory][{}] - using logger: com.alibaba.dubbo.common.logger.slf4j.Slf4jLoggerAdapter
+2018-04-28 15:26:59.331 ERROR [main][logger.LOLifecycle][{}] - BoxMonitor register exception. Box name: #box01#.
+cn.openlo.exception.LOException: cn.openlo.resource.exception.ResourceNotSupportException: no ResourceManager found for zk://lo_console/box/box01
+	at cn.openlo.panel.DefaultPanel.set(DefaultPanel.java:166)
+	at cn.openlo.box.BoxMonitor.register(BoxMonitor.java:68)
+	at cn.openlo.box.BoxBase.startInternal(BoxBase.java:440)
+	at cn.openlo.common.LifecycleBase.start(LifecycleBase.java:173)
+	at cn.openlo.gear.test.GearContextLoader.loadContext(GearContextLoader.java:65)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:105)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:117)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:107)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:117)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:83)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:242)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:227)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:246)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:538)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:760)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:460)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:206)
+Caused by: cn.openlo.resource.exception.ResourceNotSupportException: no ResourceManager found for zk://lo_console/box/box01
+	at cn.openlo.resource.StaticResourceManagerUtil.getResourceManager(StaticResourceManagerUtil.java:339)
+	at cn.openlo.resource.StaticResourceManagerUtil.set(StaticResourceManagerUtil.java:239)
+	at cn.openlo.panel.DefaultPanel.set(DefaultPanel.java:163)
+	... 31 more
+2018-04-28 15:26:59.346 INFO [main][logger.LOLifecycle][{}] - Start Box log4j2.
+2018-04-28 15:41:12.109 INFO [main][logger.LOLifecycle][{}] - =========================================================
+2018-04-28 15:41:12.111 INFO [main][logger.LOLifecycle][{}] - =========================================================
+2018-04-28 15:41:12.111 INFO [main][logger.LOLifecycle][{}] - =========================================================
+2018-04-28 15:41:12.113 INFO [main][logger.LOLifecycle][{}] - Initing box #box01#.
+2018-04-28 15:41:12.173 INFO [main][logger.LOLifecycle][{}] - Initing ResourceManager.
+2018-04-28 15:41:12.190 WARN [main][cn.openlo.resource.StaticResourceManagerUtil][{}] - !! configFileName:box01.log4j2.xml does not match any supported resourceManager !!
+2018-04-28 15:41:12.190 WARN [main][cn.openlo.resource.StaticResourceManagerUtil][{}] - !! configFileName:dependencymanager.properties does not match any supported resourceManager !!
+2018-04-28 15:41:12.190 WARN [main][cn.openlo.resource.StaticResourceManagerUtil][{}] - !! configFileName:lo-runtime.version does not match any supported resourceManager !!
+2018-04-28 15:41:12.191 WARN [main][cn.openlo.resource.StaticResourceManagerUtil][{}] - !! configFileName:Mbeans-descriptors.xml does not match any supported resourceManager !!
+2018-04-28 15:41:12.191 WARN [main][cn.openlo.resource.StaticResourceManagerUtil][{}] - !! configFileName:npwsk.properties does not match any supported resourceManager !!
+2018-04-28 15:41:12.191 WARN [main][cn.openlo.resource.StaticResourceManagerUtil][{}] - !! configFileName:panel.properties does not match any supported resourceManager !!
+2018-04-28 15:41:12.191 WARN [main][cn.openlo.resource.StaticResourceManagerUtil][{}] - !! configFileName:_lo_box_init.log4j2.xml does not match any supported resourceManager !!
+2018-04-28 15:41:12.191 INFO [main][logger.LOLifecycle][{}] - Initing Panel.
+2018-04-28 15:41:12.196 WARN [main][cn.openlo.resource.StaticResourceManagerUtil][{}] - !! resourceManager is already started !!
+2018-04-28 15:41:12.196 INFO [main][logger.LOLifecycle][{}] - Initing DependencyManager.
+2018-04-28 15:41:12.198 INFO [main][logger.LOLifecycle][{}] - Initing boxConfig.
+2018-04-28 15:41:12.198 INFO [main][logger.LOLifecycle][{}] - Box config key: #box/box01.properties#.
+2018-04-28 15:41:12.204 INFO [main][logger.LOLifecycle][{}] - Box config attrs: #BoxConfigAttrs [boxName=box01, boxHome=F:\workspace\ws_lo\lo-tutorial/src/test/resources/box01/, boxCategory=lo-tutorial-test, defaultCharset=UTF-8, enableMonitor=true, detailReportDelayInMins=30, gearList=[lo-tutorial], enableProtocolList=[HTTP, DUBBO], enableClientList=[HTTP, DUBBO], tcpHealthCheckEnable=true, tcpHealthCheckPort=5555, timeoutWaitingGearsStopped=10000, tempFilesKeepMaxHours=72, properties={box.executor.default.threads=10, box.executor.inner.threads=3, box.executor.async_call.scheduled=false, box.executor.default.queueSize=1024, box.executor.process.threads=20, box.version=1.0.0, box.enable.client.list=http,dubbo, box.executor.default.scheduled=true, box.executor.process.queueSize=1, box.default.charset=UTF-8, box.category=lo-tutorial-test, box.executor.process.scheduled=false, box.gear.list=lo-tutorial, box.executor.inner.queueSize=1024, box.executor.async_call.threads=10, box.timeout.waiting.gears.stopped=10000, box.enable.protocol.list=http,dubbo, box.name=box01, box.executor.inner.scheduled=true, box.executor.async_call.queueSize=2048}]#.
+2018-04-28 15:41:12.204 INFO [main][logger.LOLifecycle][{}] - Box #box01# inited.
+2018-04-28 15:41:12.204 INFO [main][logger.LOLifecycle][{}] - LifecycleBase. box01, from state: INITIALIZING to state: INITIALIZED.
+2018-04-28 15:41:12.204 INFO [main][logger.LOLifecycle][{}] - LifecycleBase. box01, from state: INITIALIZED to state: STARTING.
+2018-04-28 15:41:12.204 INFO [main][logger.LOLifecycle][{}] - Starting box #box01#.
+2018-04-28 15:41:12.208 INFO [main][com.alibaba.dubbo.common.logger.LoggerFactory][{}] - using logger: com.alibaba.dubbo.common.logger.slf4j.Slf4jLoggerAdapter
+2018-04-28 15:41:12.281 ERROR [main][logger.LOLifecycle][{}] - BoxMonitor register exception. Box name: #box01#.
+cn.openlo.exception.LOException: cn.openlo.resource.exception.ResourceNotSupportException: no ResourceManager found for zk://lo_console/box/box01
+	at cn.openlo.panel.DefaultPanel.set(DefaultPanel.java:166)
+	at cn.openlo.box.BoxMonitor.register(BoxMonitor.java:68)
+	at cn.openlo.box.BoxBase.startInternal(BoxBase.java:440)
+	at cn.openlo.common.LifecycleBase.start(LifecycleBase.java:173)
+	at cn.openlo.gear.test.GearContextLoader.loadContext(GearContextLoader.java:65)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:105)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:117)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:107)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:117)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:83)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:242)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:227)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:246)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:538)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:760)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:460)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:206)
+Caused by: cn.openlo.resource.exception.ResourceNotSupportException: no ResourceManager found for zk://lo_console/box/box01
+	at cn.openlo.resource.StaticResourceManagerUtil.getResourceManager(StaticResourceManagerUtil.java:339)
+	at cn.openlo.resource.StaticResourceManagerUtil.set(StaticResourceManagerUtil.java:239)
+	at cn.openlo.panel.DefaultPanel.set(DefaultPanel.java:163)
+	... 31 more
+2018-04-28 15:41:12.281 INFO [main][logger.LOLifecycle][{}] - Start Box log4j2.
+2018-04-28 15:44:40.616 INFO [main][logger.LOLifecycle][{}] - =========================================================
+2018-04-28 15:44:40.618 INFO [main][logger.LOLifecycle][{}] - =========================================================
+2018-04-28 15:44:40.618 INFO [main][logger.LOLifecycle][{}] - =========================================================
+2018-04-28 15:44:40.620 INFO [main][logger.LOLifecycle][{}] - Initing box #box01#.
+2018-04-28 15:44:40.679 INFO [main][logger.LOLifecycle][{}] - Initing ResourceManager.
+2018-04-28 15:44:40.698 WARN [main][cn.openlo.resource.StaticResourceManagerUtil][{}] - !! configFileName:box01.log4j2.xml does not match any supported resourceManager !!
+2018-04-28 15:44:40.698 WARN [main][cn.openlo.resource.StaticResourceManagerUtil][{}] - !! configFileName:dependencymanager.properties does not match any supported resourceManager !!
+2018-04-28 15:44:40.699 WARN [main][cn.openlo.resource.StaticResourceManagerUtil][{}] - !! configFileName:lo-runtime.version does not match any supported resourceManager !!
+2018-04-28 15:44:40.699 WARN [main][cn.openlo.resource.StaticResourceManagerUtil][{}] - !! configFileName:Mbeans-descriptors.xml does not match any supported resourceManager !!
+2018-04-28 15:44:40.699 WARN [main][cn.openlo.resource.StaticResourceManagerUtil][{}] - !! configFileName:npwsk.properties does not match any supported resourceManager !!
+2018-04-28 15:44:40.699 WARN [main][cn.openlo.resource.StaticResourceManagerUtil][{}] - !! configFileName:panel.properties does not match any supported resourceManager !!
+2018-04-28 15:44:40.700 WARN [main][cn.openlo.resource.StaticResourceManagerUtil][{}] - !! configFileName:_lo_box_init.log4j2.xml does not match any supported resourceManager !!
+2018-04-28 15:44:40.700 INFO [main][logger.LOLifecycle][{}] - Initing Panel.
+2018-04-28 15:44:40.705 WARN [main][cn.openlo.resource.StaticResourceManagerUtil][{}] - !! resourceManager is already started !!
+2018-04-28 15:44:40.705 INFO [main][logger.LOLifecycle][{}] - Initing DependencyManager.
+2018-04-28 15:44:40.707 INFO [main][logger.LOLifecycle][{}] - Initing boxConfig.
+2018-04-28 15:44:40.707 INFO [main][logger.LOLifecycle][{}] - Box config key: #box/box01.properties#.
+2018-04-28 15:44:40.714 INFO [main][logger.LOLifecycle][{}] - Box config attrs: #BoxConfigAttrs [boxName=box01, boxHome=F:\workspace\ws_lo\lo-tutorial/src/test/resources/box01/, boxCategory=lo-tutorial-test, defaultCharset=UTF-8, enableMonitor=true, detailReportDelayInMins=30, gearList=[lo-tutorial], enableProtocolList=[HTTP, DUBBO], enableClientList=[HTTP, DUBBO], tcpHealthCheckEnable=true, tcpHealthCheckPort=5555, timeoutWaitingGearsStopped=10000, tempFilesKeepMaxHours=72, properties={box.executor.default.threads=10, box.executor.inner.threads=3, box.executor.async_call.scheduled=false, box.executor.default.queueSize=1024, box.executor.process.threads=20, box.version=1.0.0, box.enable.client.list=http,dubbo, box.executor.default.scheduled=true, box.executor.process.queueSize=1, box.default.charset=UTF-8, box.category=lo-tutorial-test, box.executor.process.scheduled=false, box.gear.list=lo-tutorial, box.executor.inner.queueSize=1024, box.executor.async_call.threads=10, box.timeout.waiting.gears.stopped=10000, box.enable.protocol.list=http,dubbo, box.name=box01, box.executor.inner.scheduled=true, box.executor.async_call.queueSize=2048}]#.
+2018-04-28 15:44:40.714 INFO [main][logger.LOLifecycle][{}] - Box #box01# inited.
+2018-04-28 15:44:40.714 INFO [main][logger.LOLifecycle][{}] - LifecycleBase. box01, from state: INITIALIZING to state: INITIALIZED.
+2018-04-28 15:44:40.714 INFO [main][logger.LOLifecycle][{}] - LifecycleBase. box01, from state: INITIALIZED to state: STARTING.
+2018-04-28 15:44:40.714 INFO [main][logger.LOLifecycle][{}] - Starting box #box01#.
+2018-04-28 15:44:40.719 INFO [main][com.alibaba.dubbo.common.logger.LoggerFactory][{}] - using logger: com.alibaba.dubbo.common.logger.slf4j.Slf4jLoggerAdapter
+2018-04-28 15:44:40.793 ERROR [main][logger.LOLifecycle][{}] - BoxMonitor register exception. Box name: #box01#.
+cn.openlo.exception.LOException: cn.openlo.resource.exception.ResourceNotSupportException: no ResourceManager found for zk://lo_console/box/box01
+	at cn.openlo.panel.DefaultPanel.set(DefaultPanel.java:166)
+	at cn.openlo.box.BoxMonitor.register(BoxMonitor.java:68)
+	at cn.openlo.box.BoxBase.startInternal(BoxBase.java:440)
+	at cn.openlo.common.LifecycleBase.start(LifecycleBase.java:173)
+	at cn.openlo.gear.test.GearContextLoader.loadContext(GearContextLoader.java:65)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:105)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:117)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:107)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:117)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:83)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:242)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:227)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:246)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:538)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:760)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:460)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:206)
+Caused by: cn.openlo.resource.exception.ResourceNotSupportException: no ResourceManager found for zk://lo_console/box/box01
+	at cn.openlo.resource.StaticResourceManagerUtil.getResourceManager(StaticResourceManagerUtil.java:339)
+	at cn.openlo.resource.StaticResourceManagerUtil.set(StaticResourceManagerUtil.java:239)
+	at cn.openlo.panel.DefaultPanel.set(DefaultPanel.java:163)
+	... 31 more
+2018-04-28 15:44:40.793 INFO [main][logger.LOLifecycle][{}] - Start Box log4j2.
+2018-04-28 16:02:57.957 INFO [main][logger.LOLifecycle][{}] - =========================================================
+2018-04-28 16:02:57.959 INFO [main][logger.LOLifecycle][{}] - =========================================================
+2018-04-28 16:02:57.959 INFO [main][logger.LOLifecycle][{}] - =========================================================
+2018-04-28 16:02:57.960 INFO [main][logger.LOLifecycle][{}] - Initing box #box01#.
+2018-04-28 16:02:58.016 INFO [main][logger.LOLifecycle][{}] - Initing ResourceManager.
+2018-04-28 16:02:58.031 WARN [main][cn.openlo.resource.StaticResourceManagerUtil][{}] - !! configFileName:box01.log4j2.xml does not match any supported resourceManager !!
+2018-04-28 16:02:58.031 WARN [main][cn.openlo.resource.StaticResourceManagerUtil][{}] - !! configFileName:dependencymanager.properties does not match any supported resourceManager !!
+2018-04-28 16:02:58.031 WARN [main][cn.openlo.resource.StaticResourceManagerUtil][{}] - !! configFileName:lo-runtime.version does not match any supported resourceManager !!
+2018-04-28 16:02:58.032 WARN [main][cn.openlo.resource.StaticResourceManagerUtil][{}] - !! configFileName:Mbeans-descriptors.xml does not match any supported resourceManager !!
+2018-04-28 16:02:58.032 WARN [main][cn.openlo.resource.StaticResourceManagerUtil][{}] - !! configFileName:npwsk.properties does not match any supported resourceManager !!
+2018-04-28 16:02:58.032 WARN [main][cn.openlo.resource.StaticResourceManagerUtil][{}] - !! configFileName:panel.properties does not match any supported resourceManager !!
+2018-04-28 16:02:58.033 WARN [main][cn.openlo.resource.StaticResourceManagerUtil][{}] - !! configFileName:_lo_box_init.log4j2.xml does not match any supported resourceManager !!
+2018-04-28 16:02:58.033 INFO [main][logger.LOLifecycle][{}] - Initing Panel.
+2018-04-28 16:02:58.040 WARN [main][cn.openlo.resource.StaticResourceManagerUtil][{}] - !! resourceManager is already started !!
+2018-04-28 16:02:58.040 INFO [main][logger.LOLifecycle][{}] - Initing DependencyManager.
+2018-04-28 16:02:58.041 INFO [main][logger.LOLifecycle][{}] - Initing boxConfig.
+2018-04-28 16:02:58.042 INFO [main][logger.LOLifecycle][{}] - Box config key: #box/box01.properties#.
+2018-04-28 16:02:58.049 INFO [main][logger.LOLifecycle][{}] - Box config attrs: #BoxConfigAttrs [boxName=box01, boxHome=F:\workspace\ws_lo\lo-tutorial/src/test/resources/box01/, boxCategory=lo-tutorial-test, defaultCharset=UTF-8, enableMonitor=true, detailReportDelayInMins=30, gearList=[lo-tutorial], enableProtocolList=[HTTP, DUBBO], enableClientList=[HTTP, DUBBO], tcpHealthCheckEnable=true, tcpHealthCheckPort=5555, timeoutWaitingGearsStopped=10000, tempFilesKeepMaxHours=72, properties={box.executor.default.threads=10, box.executor.inner.threads=3, box.executor.async_call.scheduled=false, box.executor.default.queueSize=1024, box.executor.process.threads=20, box.version=1.0.0, box.enable.client.list=http,dubbo, box.executor.default.scheduled=true, box.executor.process.queueSize=1, box.default.charset=UTF-8, box.category=lo-tutorial-test, box.executor.process.scheduled=false, box.gear.list=lo-tutorial, box.executor.inner.queueSize=1024, box.executor.async_call.threads=10, box.timeout.waiting.gears.stopped=10000, box.enable.protocol.list=http,dubbo, box.name=box01, box.executor.inner.scheduled=true, box.executor.async_call.queueSize=2048}]#.
+2018-04-28 16:02:58.049 INFO [main][logger.LOLifecycle][{}] - Box #box01# inited.
+2018-04-28 16:02:58.049 INFO [main][logger.LOLifecycle][{}] - LifecycleBase. box01, from state: INITIALIZING to state: INITIALIZED.
+2018-04-28 16:02:58.050 INFO [main][logger.LOLifecycle][{}] - LifecycleBase. box01, from state: INITIALIZED to state: STARTING.
+2018-04-28 16:02:58.050 INFO [main][logger.LOLifecycle][{}] - Starting box #box01#.
+2018-04-28 16:02:58.056 INFO [main][com.alibaba.dubbo.common.logger.LoggerFactory][{}] - using logger: com.alibaba.dubbo.common.logger.slf4j.Slf4jLoggerAdapter
+2018-04-28 16:02:58.137 ERROR [main][logger.LOLifecycle][{}] - BoxMonitor register exception. Box name: #box01#.
+cn.openlo.exception.LOException: cn.openlo.resource.exception.ResourceNotSupportException: no ResourceManager found for zk://lo_console/box/box01
+	at cn.openlo.panel.DefaultPanel.set(DefaultPanel.java:166)
+	at cn.openlo.box.BoxMonitor.register(BoxMonitor.java:68)
+	at cn.openlo.box.BoxBase.startInternal(BoxBase.java:440)
+	at cn.openlo.common.LifecycleBase.start(LifecycleBase.java:173)
+	at cn.openlo.gear.test.GearContextLoader.loadContext(GearContextLoader.java:65)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:105)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:117)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:107)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:117)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:83)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:242)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:227)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:246)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:538)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:760)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:460)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:206)
+Caused by: cn.openlo.resource.exception.ResourceNotSupportException: no ResourceManager found for zk://lo_console/box/box01
+	at cn.openlo.resource.StaticResourceManagerUtil.getResourceManager(StaticResourceManagerUtil.java:339)
+	at cn.openlo.resource.StaticResourceManagerUtil.set(StaticResourceManagerUtil.java:239)
+	at cn.openlo.panel.DefaultPanel.set(DefaultPanel.java:163)
+	... 31 more
+2018-04-28 16:02:58.137 INFO [main][logger.LOLifecycle][{}] - Start Box log4j2.
+2018-04-28 16:12:57.818 INFO [main][logger.LOLifecycle][{}] - =========================================================
+2018-04-28 16:12:57.821 INFO [main][logger.LOLifecycle][{}] - =========================================================
+2018-04-28 16:12:57.821 INFO [main][logger.LOLifecycle][{}] - =========================================================
+2018-04-28 16:12:57.823 INFO [main][logger.LOLifecycle][{}] - Initing box #box01#.
+2018-04-28 16:12:57.882 INFO [main][logger.LOLifecycle][{}] - Initing ResourceManager.
+2018-04-28 16:12:57.898 WARN [main][cn.openlo.resource.StaticResourceManagerUtil][{}] - !! configFileName:box01.log4j2.xml does not match any supported resourceManager !!
+2018-04-28 16:12:57.899 WARN [main][cn.openlo.resource.StaticResourceManagerUtil][{}] - !! configFileName:dependencymanager.properties does not match any supported resourceManager !!
+2018-04-28 16:12:57.899 WARN [main][cn.openlo.resource.StaticResourceManagerUtil][{}] - !! configFileName:lo-runtime.version does not match any supported resourceManager !!
+2018-04-28 16:12:57.899 WARN [main][cn.openlo.resource.StaticResourceManagerUtil][{}] - !! configFileName:Mbeans-descriptors.xml does not match any supported resourceManager !!
+2018-04-28 16:12:57.899 WARN [main][cn.openlo.resource.StaticResourceManagerUtil][{}] - !! configFileName:npwsk.properties does not match any supported resourceManager !!
+2018-04-28 16:12:57.900 WARN [main][cn.openlo.resource.StaticResourceManagerUtil][{}] - !! configFileName:panel.properties does not match any supported resourceManager !!
+2018-04-28 16:12:57.900 WARN [main][cn.openlo.resource.StaticResourceManagerUtil][{}] - !! configFileName:_lo_box_init.log4j2.xml does not match any supported resourceManager !!
+2018-04-28 16:12:57.900 INFO [main][logger.LOLifecycle][{}] - Initing Panel.
+2018-04-28 16:12:57.905 WARN [main][cn.openlo.resource.StaticResourceManagerUtil][{}] - !! resourceManager is already started !!
+2018-04-28 16:12:57.905 INFO [main][logger.LOLifecycle][{}] - Initing DependencyManager.
+2018-04-28 16:12:57.906 INFO [main][logger.LOLifecycle][{}] - Initing boxConfig.
+2018-04-28 16:12:57.907 INFO [main][logger.LOLifecycle][{}] - Box config key: #box/box01.properties#.
+2018-04-28 16:12:57.912 INFO [main][logger.LOLifecycle][{}] - Box config attrs: #BoxConfigAttrs [boxName=box01, boxHome=F:\workspace\ws_lo\lo-tutorial/src/test/resources/box01/, boxCategory=lo-tutorial-test, defaultCharset=UTF-8, enableMonitor=true, detailReportDelayInMins=30, gearList=[lo-tutorial], enableProtocolList=[HTTP, DUBBO], enableClientList=[HTTP, DUBBO], tcpHealthCheckEnable=true, tcpHealthCheckPort=5555, timeoutWaitingGearsStopped=10000, tempFilesKeepMaxHours=72, properties={box.executor.default.threads=10, box.executor.inner.threads=3, box.executor.async_call.scheduled=false, box.executor.default.queueSize=1024, box.executor.process.threads=20, box.version=1.0.0, box.enable.client.list=http,dubbo, box.executor.default.scheduled=true, box.executor.process.queueSize=1, box.default.charset=UTF-8, box.category=lo-tutorial-test, box.executor.process.scheduled=false, box.gear.list=lo-tutorial, box.executor.inner.queueSize=1024, box.executor.async_call.threads=10, box.timeout.waiting.gears.stopped=10000, box.enable.protocol.list=http,dubbo, box.name=box01, box.executor.inner.scheduled=true, box.executor.async_call.queueSize=2048}]#.
+2018-04-28 16:12:57.913 INFO [main][logger.LOLifecycle][{}] - Box #box01# inited.
+2018-04-28 16:12:57.913 INFO [main][logger.LOLifecycle][{}] - LifecycleBase. box01, from state: INITIALIZING to state: INITIALIZED.
+2018-04-28 16:12:57.913 INFO [main][logger.LOLifecycle][{}] - LifecycleBase. box01, from state: INITIALIZED to state: STARTING.
+2018-04-28 16:12:57.913 INFO [main][logger.LOLifecycle][{}] - Starting box #box01#.
+2018-04-28 16:12:57.919 INFO [main][com.alibaba.dubbo.common.logger.LoggerFactory][{}] - using logger: com.alibaba.dubbo.common.logger.slf4j.Slf4jLoggerAdapter
+2018-04-28 16:12:57.995 ERROR [main][logger.LOLifecycle][{}] - BoxMonitor register exception. Box name: #box01#.
+cn.openlo.exception.LOException: cn.openlo.resource.exception.ResourceNotSupportException: no ResourceManager found for zk://lo_console/box/box01
+	at cn.openlo.panel.DefaultPanel.set(DefaultPanel.java:166)
+	at cn.openlo.box.BoxMonitor.register(BoxMonitor.java:68)
+	at cn.openlo.box.BoxBase.startInternal(BoxBase.java:440)
+	at cn.openlo.common.LifecycleBase.start(LifecycleBase.java:173)
+	at cn.openlo.gear.test.GearContextLoader.loadContext(GearContextLoader.java:65)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:105)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:117)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:107)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:117)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:83)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:242)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:227)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:246)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:538)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:760)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:460)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:206)
+Caused by: cn.openlo.resource.exception.ResourceNotSupportException: no ResourceManager found for zk://lo_console/box/box01
+	at cn.openlo.resource.StaticResourceManagerUtil.getResourceManager(StaticResourceManagerUtil.java:339)
+	at cn.openlo.resource.StaticResourceManagerUtil.set(StaticResourceManagerUtil.java:239)
+	at cn.openlo.panel.DefaultPanel.set(DefaultPanel.java:163)
+	... 31 more
+2018-04-28 16:12:57.995 INFO [main][logger.LOLifecycle][{}] - Start Box log4j2.
+2018-04-28 16:20:34.252 INFO [main][logger.LOLifecycle][{}] - =========================================================
+2018-04-28 16:20:34.255 INFO [main][logger.LOLifecycle][{}] - =========================================================
+2018-04-28 16:20:34.255 INFO [main][logger.LOLifecycle][{}] - =========================================================
+2018-04-28 16:20:34.257 INFO [main][logger.LOLifecycle][{}] - Initing box #box01#.
+2018-04-28 16:20:34.313 INFO [main][logger.LOLifecycle][{}] - Initing ResourceManager.
+2018-04-28 16:20:34.330 WARN [main][cn.openlo.resource.StaticResourceManagerUtil][{}] - !! configFileName:box01.log4j2.xml does not match any supported resourceManager !!
+2018-04-28 16:20:34.330 WARN [main][cn.openlo.resource.StaticResourceManagerUtil][{}] - !! configFileName:dependencymanager.properties does not match any supported resourceManager !!
+2018-04-28 16:20:34.330 WARN [main][cn.openlo.resource.StaticResourceManagerUtil][{}] - !! configFileName:lo-runtime.version does not match any supported resourceManager !!
+2018-04-28 16:20:34.331 WARN [main][cn.openlo.resource.StaticResourceManagerUtil][{}] - !! configFileName:Mbeans-descriptors.xml does not match any supported resourceManager !!
+2018-04-28 16:20:34.331 WARN [main][cn.openlo.resource.StaticResourceManagerUtil][{}] - !! configFileName:npwsk.properties does not match any supported resourceManager !!
+2018-04-28 16:20:34.331 WARN [main][cn.openlo.resource.StaticResourceManagerUtil][{}] - !! configFileName:panel.properties does not match any supported resourceManager !!
+2018-04-28 16:20:34.331 WARN [main][cn.openlo.resource.StaticResourceManagerUtil][{}] - !! configFileName:_lo_box_init.log4j2.xml does not match any supported resourceManager !!
+2018-04-28 16:20:34.332 INFO [main][logger.LOLifecycle][{}] - Initing Panel.
+2018-04-28 16:20:34.337 WARN [main][cn.openlo.resource.StaticResourceManagerUtil][{}] - !! resourceManager is already started !!
+2018-04-28 16:20:34.337 INFO [main][logger.LOLifecycle][{}] - Initing DependencyManager.
+2018-04-28 16:20:34.339 INFO [main][logger.LOLifecycle][{}] - Initing boxConfig.
+2018-04-28 16:20:34.339 INFO [main][logger.LOLifecycle][{}] - Box config key: #box/box01.properties#.
+2018-04-28 16:20:34.344 INFO [main][logger.LOLifecycle][{}] - Box config attrs: #BoxConfigAttrs [boxName=box01, boxHome=F:\workspace\ws_lo\lo-tutorial/src/test/resources/box01/, boxCategory=lo-tutorial-test, defaultCharset=UTF-8, enableMonitor=true, detailReportDelayInMins=30, gearList=[lo-tutorial], enableProtocolList=[HTTP, DUBBO], enableClientList=[HTTP, DUBBO], tcpHealthCheckEnable=true, tcpHealthCheckPort=5555, timeoutWaitingGearsStopped=10000, tempFilesKeepMaxHours=72, properties={box.executor.default.threads=10, box.executor.inner.threads=3, box.executor.async_call.scheduled=false, box.executor.default.queueSize=1024, box.executor.process.threads=20, box.version=1.0.0, box.enable.client.list=http,dubbo, box.executor.default.scheduled=true, box.executor.process.queueSize=1, box.default.charset=UTF-8, box.category=lo-tutorial-test, box.executor.process.scheduled=false, box.gear.list=lo-tutorial, box.executor.inner.queueSize=1024, box.executor.async_call.threads=10, box.timeout.waiting.gears.stopped=10000, box.enable.protocol.list=http,dubbo, box.name=box01, box.executor.inner.scheduled=true, box.executor.async_call.queueSize=2048}]#.
+2018-04-28 16:20:34.345 INFO [main][logger.LOLifecycle][{}] - Box #box01# inited.
+2018-04-28 16:20:34.345 INFO [main][logger.LOLifecycle][{}] - LifecycleBase. box01, from state: INITIALIZING to state: INITIALIZED.
+2018-04-28 16:20:34.345 INFO [main][logger.LOLifecycle][{}] - LifecycleBase. box01, from state: INITIALIZED to state: STARTING.
+2018-04-28 16:20:34.345 INFO [main][logger.LOLifecycle][{}] - Starting box #box01#.
+2018-04-28 16:20:34.348 INFO [main][com.alibaba.dubbo.common.logger.LoggerFactory][{}] - using logger: com.alibaba.dubbo.common.logger.slf4j.Slf4jLoggerAdapter
+2018-04-28 16:20:34.425 ERROR [main][logger.LOLifecycle][{}] - BoxMonitor register exception. Box name: #box01#.
+cn.openlo.exception.LOException: cn.openlo.resource.exception.ResourceNotSupportException: no ResourceManager found for zk://lo_console/box/box01
+	at cn.openlo.panel.DefaultPanel.set(DefaultPanel.java:166)
+	at cn.openlo.box.BoxMonitor.register(BoxMonitor.java:68)
+	at cn.openlo.box.BoxBase.startInternal(BoxBase.java:440)
+	at cn.openlo.common.LifecycleBase.start(LifecycleBase.java:173)
+	at cn.openlo.gear.test.GearContextLoader.loadContext(GearContextLoader.java:65)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:105)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:117)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:107)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:117)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:83)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:242)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:227)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:246)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:538)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:760)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:460)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:206)
+Caused by: cn.openlo.resource.exception.ResourceNotSupportException: no ResourceManager found for zk://lo_console/box/box01
+	at cn.openlo.resource.StaticResourceManagerUtil.getResourceManager(StaticResourceManagerUtil.java:339)
+	at cn.openlo.resource.StaticResourceManagerUtil.set(StaticResourceManagerUtil.java:239)
+	at cn.openlo.panel.DefaultPanel.set(DefaultPanel.java:163)
+	... 31 more
+2018-04-28 16:20:34.425 INFO [main][logger.LOLifecycle][{}] - Start Box log4j2.

@@ -1,0 +1,216 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>cn.openlo</groupId>
+		<artifactId>lo-all</artifactId>
+		<version>2.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>lo-tutorial</artifactId>
+	<name>lo-tutorial ${project.version}</name>
+
+	<dependencies>
+		<dependency>
+			<groupId>cn.openlo</groupId>
+			<artifactId>lo-runtime</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>cn.openlo</groupId>
+			<artifactId>lo-widgets-datasource</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>cn.openlo</groupId>
+			<artifactId>lo-widgets-gear</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>cn.openlo</groupId>
+			<artifactId>lo-process</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.taobao.tddl</groupId>
+			<artifactId>tddl-repo-mysql</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>commons-beanutils</groupId>
+			<artifactId>commons-beanutils</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.codehaus.plexus</groupId>
+			<artifactId>plexus-utils</artifactId>
+			<version>1.5.5</version>
+		</dependency>
+		<dependency>
+			<groupId>cn.openlo</groupId>
+			<artifactId>lo-starter</artifactId>
+			<version>2.0.1-SNAPSHOT</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
+		</dependency>
+		<!-- 国政通jar -->
+		<dependency>
+			<groupId>cn.id5</groupId>
+			<artifactId>gboss</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20160810</version>
+		</dependency>
+		<dependency>
+			<groupId>redis.clients</groupId>
+			<artifactId>jedis</artifactId>
+			<version>2.9.0</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.mybatis.generator</groupId>
+				<artifactId>mybatis-generator-maven-plugin</artifactId>
+				<version>1.3.2</version>
+				<configuration>
+					<!-- 指定配置文件的位置 -->
+					<configurationFile>${basedir}/src/main/resources/cn/openlo/tutorial/generatorConfig.xml</configurationFile>
+					<!-- 输出详细日志 -->
+					<verbose>true</verbose>
+					<!-- 覆盖已有文件 -->
+					<overwrite>true</overwrite>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<!-- dolphin-mybatis-generator提供了MySqlPaginationPlugin等扩展。 -->
+						<!-- https://github.com/beihaifeiwu/dolphin -->
+						<!-- 源代码和中央仓库为Java 1.8环境，1.1.0-1.7为自打包版本，已上传到私服 -->
+						<groupId>com.freetmp</groupId>
+						<artifactId>dolphin-mybatis-generator</artifactId>
+						<version>1.1.0-1.7</version>
+					</dependency>
+					<dependency>
+						<!-- 连接数据库需要使用jdbc驱动，已经上传到私服 -->
+						<groupId>com.mysql</groupId>
+						<artifactId>mysql-connector-java</artifactId>
+						<version>5.1.39</version>
+					</dependency>
+					<dependency>
+						<groupId>cn.openlo</groupId>
+						<artifactId>lo-core</artifactId>
+						<version>${project.version}</version>
+					</dependency>
+					<dependency>
+						<groupId>cn.openlo</groupId>
+						<artifactId>lo-widgets-gear</artifactId>
+						<version>${project.version}</version>
+					</dependency>
+					<dependency>
+						<groupId>cn.openlo</groupId>
+						<artifactId>lo-widgets-datasource</artifactId>
+						<version>${project.version}</version>
+					</dependency>
+					<dependency>
+						<groupId>cn.openlo</groupId>
+						<artifactId>lo-mbg-ext</artifactId>
+						<version>0.0.1-SNAPSHOT</version>
+					</dependency>
+					<dependency>
+						<groupId>cn.openlo</groupId>
+						<artifactId>lo-tutorial</artifactId>
+						<version>1.0.0-SNAPSHOT</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.5.1</version>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+					<encoding>UTF-8</encoding>
+					<showDeprecation>true</showDeprecation>
+					<showWarnings>true</showWarnings>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<repositories>
+		<!-- maven访问顺序为配置顺序 -->
+		<repository>
+			<id>private</id>
+			<name>private</name>
+			<url>http://www.openlo.cn:8081/nexus/content/groups/private/</url>
+			<releases>
+				<enabled>true</enabled>
+				<!-- 每次构建都从远程仓库检查更新 -->
+				<updatePolicy>always</updatePolicy>
+				<!-- 验证checksum文件 -->
+				<checksumPolicy>warn</checksumPolicy>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+				<!-- 每次构建都从远程仓库检查更新 -->
+				<updatePolicy>always</updatePolicy>
+				<!-- 验证checksum文件 -->
+				<checksumPolicy>warn</checksumPolicy>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>public</id>
+			<name>public</name>
+			<url>http://www.openlo.cn:8081/nexus/content/groups/public/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<!-- 关闭从public下载snapshots -->
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>imagej.public</id>
+			<url>http://maven.imagej.net/content/groups/public</url>
+		</repository>
+	</repositories>
+	<pluginRepositories>
+		<!-- maven访问顺序为配置顺序 -->
+		<pluginRepository>
+			<id>private</id>
+			<name>private</name>
+			<url>http://www.openlo.cn:8081/nexus/content/groups/private/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</pluginRepository>
+		<pluginRepository>
+			<id>public</id>
+			<name>public</name>
+			<url>http://www.openlo.cn:8081/nexus/content/groups/public/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
+</project>
