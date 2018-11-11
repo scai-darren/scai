@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mbeans-descriptors>
+	<mbean name="LOBox" description="the box container" domain="cn.openlo"  group="boxGroup" type="cn.openlo.management.BoxMBean">
+		<operation name="startBox" description="start box" impact="ACTION" returnType="void" />
+		<operation name="stopBox" description="stop box" impact="ACTION" returnType="void" />
+		<operation name="forceStopBox" description="force stop box" impact="ACTION" returnType="void" >
+			<parameter name="passwd" description="the force stop password" type="java.lang.String" />
+			<parameter name="doThreadDump" description="dump thread or not" type="boolean" />
+			<parameter name="doHeapDump" description="dump heap or not" type="boolean" />
+		</operation>
+		<operation name="doThreadDump" description="do thread dump" impact="INFO" returnType="void" />
+		<operation name="doHeapDump" description="do heap dump" impact="INFO" returnType="void" />
+		<operation name="doSystemPropertiesDump" description="do system properties dump" impact="INFO" returnType="void" />
+		<operation name="getBoxStatus" description="get box status" impact="INFO" returnType="java.lang.String" />
+		<operation name="getServiceNamesInGear" description="get service names in gear" impact="INFO" returnType="java.util.List" >
+			<parameter name="gearName" description="the gear name" type="java.lang.String" />
+		</operation>
+	</mbean>
+</mbeans-descriptors>

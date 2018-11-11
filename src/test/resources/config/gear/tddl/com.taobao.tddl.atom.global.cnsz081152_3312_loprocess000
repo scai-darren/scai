@@ -1,0 +1,5 @@
+ip=101.201.144.63
+port=3306
+dbName=db_lotest_000
+dbType=mysql
+dbStatus=RW

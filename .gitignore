@@ -1,0 +1,11 @@
+# Ignore
+*.class
+target/
+logs/
+log/
+.classpath
+.project
+.settings/
+/target*
+
+pom.xml.versionsBackup

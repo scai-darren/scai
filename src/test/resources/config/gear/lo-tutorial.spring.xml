@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		 http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+		 http://www.springframework.org/schema/context   
+     	http://www.springframework.org/schema/context/spring-context-4.2.xsd
+     	http://www.springframework.org/schema/util 
+     	http://www.springframework.org/schema/util/spring-util.xsd">
+
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="cn.openlo.tutorial.dao.mybatis,cn.openlo.process.engine.dao" />
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
+	
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="configLocation" value="panel:gear/lo-tutorial.mybatis.xml" />
+		<property name="mapperLocations">
+			<array>
+				<value>classpath*:cn/openlo/tutorial/dao/mybatis/sqlmap/**/*.xml</value>
+				<value>classpath*:cn/openlo/process/engine/dao/sqlmap/**/*.xml</value>
+			</array>		
+		</property>
+		<property name="plugins">
+			<array>
+				<bean class="cn.openlo.gear.mybatis.ext.MybatisUpdatePlugin" />
+			</array>
+		</property>
+	</bean>
+
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<bean id="transactionTemplate" class="org.springframework.transaction.support.TransactionTemplate">
+		<property name="transactionManager" ref="transactionManager" />
+		<property name="timeout" value="3000"/> <!-- in seconds -->
+		<property name="propagationBehaviorName" value="PROPAGATION_REQUIRED"/>
+		<property name="isolationLevelName" value="ISOLATION_DEFAULT"/>
+	</bean>
+
+	 <bean id="dataSource" class="cn.openlo.datasource.druid.DruidDataSourceFactoryBean">
+		<property name="druidConfig">
+			<util:map>
+				<entry key="init" value="true" />
+				<entry key="url"
+					value="jdbc:mysql://127.0.0.1:3306/vfc?useUnicode=true&amp;characterEncoding=UTF-8" />
+				<entry key="username" value="root" />		
+						
+				<entry key="password" value="root" />
+			
+				<entry key="driverClassName" value="com.mysql.jdbc.Driver" />
+				<entry key="initialSize" value="1" />
+				<entry key="minIdle" value="3" />
+				<entry key="maxActive" value="5" />
+				<entry key="maxWait" value="50000" />
+				<entry key="timeBetweenEvictionRunsMillis" value="600000" />
+				<entry key="minEvictableIdleTimeMillis" value="3000000" />
+				<entry key="validationQuery" value="SELECT 'x'" />
+				<entry key="validationQueryTimeout" value="10000" />
+				<entry key="testWhileIdle" value="true" />
+				<entry key="testOnBorrow" value="false" />
+				<entry key="testOnReturn" value="false" />
+				<entry key="poolPreparedStatements" value="false" />
+				<entry key="maxPoolPreparedStatementPerConnectionSize" value="20" />
+				<entry key="filters" value="stat" />
+			</util:map>
+		</property>
+	</bean> 
+	
+	<!-- <bean id="dataSource" class="cn.openlo.datasource.tddl.LOTDataSource"
+		init-method="init" destroy-method="destory">
+		<property name="appName" value="loprocess" />
+		<property name="panelPathPrefix" value="gear" />
+		<property name="dbNum" value="2" />
+		<property name="tableNum" value="4" />
+	</bean> -->
+	
+	<bean id="dataSourceConfig" class="cn.openlo.datasource.executor.DataSourceConfigImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	
+	<bean id="shardingExecutor" class="cn.openlo.datasource.executor.ShardingExecutorImpl">
+		<property name="dataSourceConfig" ref="dataSourceConfig" />
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
+	
+	<bean id="contractNoGenerator" class="cn.openlo.gear.sequence.DefaultStringSequenceGenerator" init-method="init">
+		<property name="leftZeroPadding" value="true" />
+		<property name="sequenceLengthIncludePrefix" value="11"/>
+		<property name="sequencePrefix" value="T" />
+		<property name="numberSequenceGenerator" ref="contractNoNumberSequenceGenerator"/>
+	</bean>
+
+	<bean id="contractNoNumberSequenceGenerator" class="cn.openlo.gear.sequence.DBNumberSequenceGenerator"
+		init-method="init">
+		<property name="dataSource" ref="dataSource" />
+		<property name="id" value="tutorial_contract_no" />
+		<property name="step" value="5" /><!-- 默认值 -->
+		<property name="columnNameCurrentSequence" value="seq_current" /><!-- 
+			默认值 -->
+		<property name="columnNameMaximumSequence" value="seq_maximum" /><!-- 
+			默认值 -->
+		<property name="columnNameId" value="seq_id" /><!-- 默认值 -->
+		<property name="tableName" value="sequence_config" /><!-- 默认值 -->
+		<property name="databaseName" value="mysql" /><!-- 可以不配置，由DatabaseMetaData解析；如果配置，则不解析DatabaseMetaData -->
+	</bean>
+	
+	<bean id="_generic_biz_exception_handler" class="cn.openlo.gear.exception.GenericBizExceptionHandler"/>
+	<bean id="_generic_mq_biz_exception_handler" class="cn.openlo.tutorial.exphandle.GenericMqBizExceptionHandler"/>
+	
+	
+	<!-- JnlNoHelper同一个Gear只需配置一个单例Bean -->
+	<bean id="jnlNoHelper" class="cn.openlo.gear.jnl.impl.ThreadLocalJnlNoHelper">
+		<property name="jnlNoGenerator">
+			<bean class="cn.openlo.gear.jnl.impl.DefaultJnlNoGenerator">
+				<property name="systemId" value="${systemId}"/> <!-- 4位的系统编码 -->
+				<property name="entityId" value="${gearSeq}"/> <!-- 两位的Gear编码，对于同一系统（系统编码相同）下，不同Gear不能重复 -->
+			</bean>
+		</property>
+	</bean>
+	<bean id="_jnl_no_inbound_service_filter" class="cn.openlo.gear.jnl.JnlNoInboundServiceFilter">
+		<property name="jnlNoHelper" ref="jnlNoHelper"/>
+	</bean>
+	<bean id="_jnl_no_outbound_service_filter" class="cn.openlo.gear.jnl.JnlNoOutboundServiceFilter">
+		<property name="jnlNoHelper" ref="jnlNoHelper"/>
+	</bean>
+	
+	
+	<!-- <bean id="processEngineConfiguration" class="cn.openlo.process.engine.ProcessEngineConfiguration">
+		<property name="definitionLocations" value="${process.definition.locations}"/>
+		<property name="continueGroups" value="${process.continue.groups}" />
+		<property name="continueTimeout" value="${process.continue.timeout}" />
+		<property name="maxRetry" value="${process.maxRetry}" />
+		<property name="jnlNoGenerator" ref="jnlNoHelper" />
+		<property name="shardingExecutor" ref="shardingExecutor"></property>
+	</bean> -->
+</beans>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+	<!-- 参考文档：中文 http://generator.sturgeon.mopaas.com/afterRunning.html，原文http://www.mybatis.org/generator/ -->
+	<!-- 示例table：create table mybatis_user(user_name CHAR(15) not null,user_password 
+		CHAR(15) not null,user_email VARCHAR(20) not null unique,user_birthday DATETIME,user_age 
+		INT,user_salary DECIMAL(10,2),primary key(user_name))engine=innodb default 
+		charset=utf8; -->
+	<!-- 依赖包直接定义在mybatis-generator-maven-plugin的dependencies中 -->
+	<!-- <classPathEntry location="./lib/mysql-connector-java-5.1.39-bin.jar" 
+		/> <classPathEntry location="./lib/dolphin-mybatis-generator-1.1.0.jar" /> -->
+	<context id="default" targetRuntime="MyBatis3">
+		<property name="javaFileEncoding" value="UTF-8" />
+		<!-- 替换Example为Criteria -->
+		<plugin type="org.mybatis.generator.plugins.RenameExampleClassPlugin">
+			<property name="searchString" value="Example$" />
+			<property name="replaceString" value="Criteria" />
+		</plugin>
+		<!-- 表格对应Java bean类型实现java.io.Serializable接口，添加默认的serialVersionUID -->
+		<plugin type="org.mybatis.generator.plugins.SerializablePlugin">
+			<property name="suppressJavaInterface " value="true" />
+		</plugin>
+		<!-- 表格对应Java bean类型增加toString方法 -->
+		<plugin type="org.mybatis.generator.plugins.ToStringPlugin" />
+		<!-- 增加分页支持 -->
+		<plugin type="com.freetmp.mbg.plugin.page.MySqlPaginationPlugin" />
+		<!-- 生成分库分表的扫表语句，项目需要依赖lo-widgets-datasource -->
+		<plugin type="cn.openlo.mbg.plugins.ShardingExamplePlugin" />
+		<!-- jdbc连接定义 -->
+		<!-- <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://101.201.144.63:3306/db_lotest?useUnicode=true&amp;characterEncoding=UTF-8" 
+			userId="louser" password="lolo10" /> -->
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://127.0.0.1:3306/vfc?useUnicode=true&amp;characterEncoding=UTF-8"
+			userId="root" password="root" />
+		<!-- 强制数据库小数类型为java.math.BigDecimal -->
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="true" />
+		</javaTypeResolver>
+		<!-- 表格对应Java bean类型生成，结果为$TABLE_NAME$.java和$TABLE_NAME$Criteria.java -->
+		<javaModelGenerator targetPackage="cn.openlo.tutorial.dto"
+			targetProject="./src/main/java/">
+			<property name="constructorBased" value="false" />
+			<!-- 指定Java bean公共父类 -->
+			<property name="rootClass"
+				value="cn.openlo.gear.dataobject.PersistentDTOSupport" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+		<!-- sql语句生成，结果为$TABLE_NAME$Mapper.xml -->
+		<sqlMapGenerator targetPackage="cn.openlo.tutorial.dao.mybatis.sqlmap"
+			targetProject="./src/main/java/" />
+		<!-- 应用客户端生成，结果为$TABLE_NAME$Mapper.java -->
+		<javaClientGenerator targetPackage="cn.openlo.tutorial.dao.mybatis"
+			targetProject="./src/main/java/" type="XMLMAPPER">
+			<!-- 指定客户端公共接口 -->
+			<property name="rootInterface" value="cn.openlo.dataobject.DAO" />
+		</javaClientGenerator>
+		<!-- 以下定义需要生成的表 -->
+		<table schema="db_lotest" tableName="lo_tutorial_order" />
+		<table schema="db_lotest" tableName="lo_tutorial_product" />
+		<table schema="db_lotest" tableName="lo_tutorial_cust_share" />
+	</context>
+</generatorConfiguration>

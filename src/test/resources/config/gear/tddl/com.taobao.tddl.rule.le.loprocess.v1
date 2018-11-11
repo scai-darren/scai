@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>     
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<bean id="vtabroot" class="com.taobao.tddl.rule.VirtualTableRoot" init-method="init">
+		<property name="dbType" value="MYSQL" />
+		<property name="defaultDbIndex" value="loprocess_loprocess" />
+		<property name="lazyInit" value="false" />
+		<property name="tableRules">
+			<map>
+				<entry key="lo_process_instance" value-ref="lo_process_instance" />
+				<entry key="lo_service_instance" value-ref="lo_service_instance" />
+				<entry key="lo_task_instance" value-ref="lo_task_instance" />
+			</map>
+		</property>
+	</bean>
+	
+	<bean id="commonTableRule" class="com.taobao.tddl.rule.TableRule">
+		<property name="allowFullTableScan" value="false" />
+		<property name="dbNamePattern" value="loprocess_loprocess{000}" />
+		<property name="dbRuleArray" value="((new Long(# {db_key} ,1 ,4 #)) % 4).intdiv(2)" />
+		<property name="tbRules" value="(new Long(# {db_key} ,1 ,4 #)) % 4 " />
+	</bean>
+
+	<bean id="lo_process_instance" parent="commonTableRule">
+		<property name="tbNamePattern" value="lo_process_instance_{0000}" />
+		<property name="ruleParames" value="db_key:cust_id" />
+	</bean>
+	
+	<bean id="lo_service_instance" parent="commonTableRule">
+		<property name="tbNamePattern" value="lo_service_instance_{0000}" />
+		<property name="ruleParames" value="db_key:cust_id" />
+	</bean>
+	
+	<bean id="lo_task_instance" parent="commonTableRule">
+		<property name="tbNamePattern" value="lo_task_instance_{0000}" />
+		<property name="ruleParames" value="db_key:cust_id" />
+	</bean>
+</beans>

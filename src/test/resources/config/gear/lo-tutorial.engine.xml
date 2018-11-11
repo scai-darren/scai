@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Template>
+	<Process name="P1">
+		<Service name="s1">
+			<Executor ref="testPass"></Executor>
+		</Service>
+		<Service name="s2">
+			<Executor ref="testPass"></Executor>
+		</Service>
+	</Process>
+	<Process name="P2">
+		<Service name="s1">
+			<Executor ref="testUnknow"></Executor>
+			<Query ref="testPass"></Query>
+		</Service>
+		<Service name="s2">
+			<Executor ref="testPass"></Executor>
+		</Service>
+	</Process>
+	
+	<Process name="P3">
+		<Service name="s1">
+			<Executor ref="testPass"></Executor>
+			<Query ref="testPass"></Query>
+		</Service>
+		<Service name="s2">
+			<Executor ref="testPass"></Executor>
+		</Service>
+		<Service name="s3" async="true">
+			<Task name="t1">
+				<Executor ref="testPass"></Executor>
+				<Query ref="testPass"></Query>
+			</Task>
+			<Task name="t2">
+				<Executor ref="testPass"></Executor>
+				<Query ref="testPass"></Query>
+			</Task>
+			<Task name="t3">
+				<Executor ref="testPass"></Executor>
+				<Query ref="testPass"></Query>
+			</Task>
+		</Service>
+	</Process>
+	
+	<Process name="P4">
+		<Service name="s1">
+			<Executor ref="testPass"></Executor>
+			<Query ref="testPass"></Query>
+		</Service>
+		<Service name="s2">
+			<Executor ref="testPass"></Executor>
+		</Service>
+		<Service name="s3" async="false">
+			<Task name="t1">
+				<Executor ref="testPass"></Executor>
+				<Query ref="testPass"></Query>
+			</Task>
+			<Task name="t2">
+				<Executor ref="testPass"></Executor>
+				<Query ref="testPass"></Query>
+			</Task>
+		</Service>
+		<Service name="s4">
+			<Executor ref="testPass"></Executor>
+		</Service>
+	</Process>
+	
+	<Process name="P5">
+		<Service name="s1">
+			<Executor ref="testPass"></Executor>
+			<Reverser ref="testPass"></Reverser>
+		</Service>
+		<Service name="s2">
+			<Executor ref="testStay"></Executor>
+			<Transition event="failure" action="reverse"></Transition>
+		</Service>
+	</Process>
+	
+	<Process name="P6">
+		<Service name="s1">
+			<Executor ref="testPass"></Executor>
+			<Reverser ref="testStay"></Reverser>
+		</Service>
+		<Service name="s2">
+			<Executor ref="testPass"></Executor>
+			<Transition event="failure" action="reverse"></Transition>
+		</Service>
+	</Process>
+	
+	
+	<Process name="P7">
+		<Service name="s1">
+			<Executor ref="testPass"></Executor>
+			<Query ref="testPass"></Query>
+		</Service>
+		<Service name="s2">
+			<Executor ref="testPass"></Executor>
+		</Service>
+		<Service name="s3" async="false">
+			<Task name="t1">
+				<Executor ref="testUnknow"></Executor>
+				<Query ref="testPass"></Query>
+			</Task>
+			<Task name="t2">				
+				<Executor ref="testUnknow"></Executor>
+				<Query ref="testPass"></Query>
+			</Task>
+			<Task name="t3">
+				<Executor ref="testPass"></Executor>
+				<Query ref="testPass"></Query>
+			</Task>
+		</Service>
+	</Process>
+	
+	<Process name="P8">
+		<Service name="s1">
+			<Executor ref="testPass"></Executor>
+			<Query ref="testPass"></Query>
+		</Service>
+		<Service name="s2">
+			<Executor ref="testPass"></Executor>
+		</Service>
+		<Service name="s3" async="false">
+			<Task name="t1">
+				<Executor ref="testPass"></Executor>
+				<Query ref="testPass"></Query>
+			</Task>
+			<Task name="t2">
+				<Executor ref="testPass"></Executor>
+				<Query ref="testPass"></Query>
+			</Task>
+			<Task name="t3">
+				<Executor ref="testPass"></Executor>
+				<Query ref="testPass"></Query>
+			</Task>
+		</Service>
+	</Process>
+	
+	<Process name="P9">
+		<Service name="s1">
+			<Executor ref="testPass"></Executor>
+			<Reverser ref="testPass"></Reverser>
+		</Service>
+		<Service name="s2">
+			<Executor ref="testUnknow"></Executor>
+			<Query ref="testStay"></Query>
+			<Transition event="failure" action="reverse"></Transition>
+		</Service>
+	</Process>
+	
+	<Process name="P10">
+		<Service name="s1">
+			<Executor ref="testPass"></Executor>
+		</Service>
+		<Service name="s2">
+			<Executor ref="testOver"></Executor>
+		</Service>
+	</Process>
+	
+	<Process name="P11">
+		<Service name="s1">
+			<Executor ref="testUnknow"></Executor>
+			<Query ref="testPass"></Query>
+		</Service>
+		<Service name="s2">
+			<Executor ref="testPass"></Executor>
+		</Service>
+	</Process>
+	
+	<Process name="P12">
+		<Service name="s1">
+			<Executor ref="testPass"></Executor>
+		</Service>
+		<Service name="s2">
+			<Executor ref="testUnknow"></Executor>
+			<Query ref="testUnknow"></Query>
+		</Service>
+		<Service name="s3">
+			<Executor ref="testPass"></Executor>
+		</Service>
+	</Process>
+	
+	
+	<Process name="P13">
+		<Service name="s1">
+			<Executor ref="testPass"></Executor>
+			<Query ref="testPass"></Query>
+			<Reverser ref="testPass"></Reverser>
+		</Service>
+		<Service name="s2">
+			<Executor ref="testPass"></Executor>
+			<Reverser ref="testPass"></Reverser>
+		</Service>
+		<Service name="s3" async="false">
+			<Task name="t1">
+				<Executor ref="testStay"></Executor>
+				<Query ref="testPass"></Query>
+				<Reverser ref="testPass"></Reverser>
+			</Task>
+			<Task name="t2">
+				<Executor ref="testUnknow"></Executor>
+				<Query ref="testPass"></Query>
+				<Reverser ref="testPass"></Reverser>
+			</Task>
+			<Task name="t3">
+				<Executor ref="testPass"></Executor>
+				<Query ref="testPass"></Query>
+				<Reverser ref="testPass"></Reverser>
+			</Task>
+			<Transition event="failure" action="reverse"></Transition>
+		</Service>
+	</Process>
+	
+	
+	<Process name="P14">
+		<Service name="s1">
+			<Executor ref="testPass"></Executor>
+			<Query ref="testPass"></Query>
+			<Reverser ref="testPass"></Reverser>
+		</Service>
+		<Service name="s2">
+			<Executor ref="testPass"></Executor>
+			<Reverser ref="testPass"></Reverser>
+		</Service>
+		<Service name="s3" async="false">
+			<Task name="t1">
+				<Executor ref="testPass"></Executor>
+				<Query ref="testPass"></Query>
+				<Reverser ref="testPass"></Reverser>
+			</Task>
+			<Task name="t2">
+				<Executor ref="testPass"></Executor>
+				<Query ref="testPass"></Query>
+				<Reverser ref="testPass"></Reverser>
+			</Task>
+			<Task name="t3">
+				<Executor ref="testPass"></Executor>
+				<Query ref="testPass"></Query>
+				<Reverser ref="testPass"></Reverser>
+			</Task>
+		</Service>
+		<Service name="s4">
+			<Executor ref="testStay"></Executor>
+			<Transition event="failure" action="reverse"></Transition>
+		</Service>
+	</Process>
+	
+	<Process name="P15">
+		<Service name="s1">
+			<Executor ref="testPass"></Executor>
+			<Query ref="testPass"></Query>
+			<Reverser ref="testPass"></Reverser>
+		</Service>
+		<Service name="s2">
+			<Executor ref="testPass"></Executor>
+			<Reverser ref="testPass"></Reverser>
+		</Service>
+		<Service name="s3" async="false">
+			<Task name="t1">
+				<Executor ref="testPass"></Executor>
+				<Query ref="testPass"></Query>
+				<Reverser ref="testPass"></Reverser>
+			</Task>
+			<Task name="t2">
+				<Executor ref="testPass"></Executor>
+				<Query ref="testPass"></Query>
+				<Reverser ref="testPass"></Reverser>
+			</Task>
+			<Task name="t3">
+				<Executor ref="testPass"></Executor>
+				<Query ref="testPass"></Query>
+				<Reverser ref="testPass"></Reverser>
+			</Task>
+		</Service>
+		<Service name="s4">
+			<Executor ref="testPass"></Executor>
+		</Service>
+	</Process>
+	
+	<Process name="P16">
+		<Service name="s1">
+			<Executor ref="testPass"></Executor>
+			<Reverser ref="testPass"></Reverser>
+		</Service>
+		<Service name="s2">
+			<Executor ref="testWait"></Executor>
+			<Reverser ref="testPass"></Reverser>
+			<Transition event="failure" action="reverse"></Transition>
+		</Service>
+	</Process>
+	
+	
+	<Process name="P17">
+		<Service name="s1">
+			<Executor ref="testPass"></Executor>
+			<Query ref="testPass"></Query>
+			<Reverser ref="testPass"></Reverser>
+		</Service>
+		<Service name="s2">
+			<Executor ref="testPass"></Executor>
+			<Reverser ref="testPass"></Reverser>
+		</Service>
+		<Service name="s3" async="false">
+			<Task name="t1">
+				<Executor ref="testStay"></Executor>
+				<Query ref="testPass"></Query>
+				<Reverser ref="testPass"></Reverser>
+			</Task>
+			<Task name="t2">
+				<Executor ref="testStay"></Executor>
+				<Query ref="testPass"></Query>
+				<Reverser ref="testPass"></Reverser>
+			</Task>
+			<Task name="t3">
+				<Executor ref="testStay"></Executor>
+				<Query ref="testPass"></Query>
+				<Reverser ref="testPass"></Reverser>
+			</Task>
+			<Transition event="failure" action="reverse"></Transition>
+		</Service>
+		<ProcessListener event="all" ref="testListener"></ProcessListener>
+	</Process>
+	
+	<Process name="P18">
+		<Service name="s1">
+			<Executor ref="testPass"></Executor>
+			<Reverser ref="testPass"></Reverser>
+		</Service>
+		<Service name="s2">
+			<Executor ref="testPass"></Executor>
+			<Reverser ref="testPass"></Reverser>
+			<Condition expression="${condition.s2}"></Condition>
+		</Service>
+	</Process>
+	
+	
+	<Process name="P19">
+		<Service name="s3" async="false">
+			<Task name="t1">
+				<Executor ref="testPass"></Executor>
+				<Query ref="testPass"></Query>
+				<Reverser ref="testPass"></Reverser>
+				<Condition expression="${condition.t2}"></Condition>
+			</Task>
+			<Task name="t2">
+				<Executor ref="testPass"></Executor>
+				<Query ref="testPass"></Query>
+				<Reverser ref="testPass"></Reverser>
+			</Task>
+			<Task name="t3">
+				<Executor ref="testPass"></Executor>
+				<Query ref="testPass"></Query>
+				<Reverser ref="testPass"></Reverser>
+				<Condition expression="${condition.t3}"></Condition>
+			</Task>
+		</Service>
+	</Process>
+	
+	<Process name="P20">
+		<Service name="s3" async="false">
+			<Task name="t1">
+				<Executor ref="testPass"></Executor>
+				<Query ref="testPass"></Query>
+				<Reverser ref="testPass"></Reverser>
+				<Condition expression="${condition.t2}"></Condition>
+			</Task>
+			<Task name="t2">
+				<Executor ref="testPass"></Executor>
+				<Query ref="testPass"></Query>
+				<Reverser ref="testPass"></Reverser>
+			</Task>
+			<Task name="t3">
+				<Executor ref="testPass"></Executor>
+				<Query ref="testPass"></Query>
+				<Reverser ref="testPass"></Reverser>
+				<Condition expression="${condition.t3}"></Condition>
+			</Task>
+		</Service>
+		<Service name="s5" async="false">
+			<Task name="t6">
+				<Executor ref="testPass"></Executor>
+				<Query ref="testPass"></Query>
+				<Reverser ref="testPass"></Reverser>
+				<Condition expression="${condition.t5}"></Condition>
+			</Task>
+			<Task name="t6">
+				<Executor ref="testPass"></Executor>
+				<Query ref="testPass"></Query>
+				<Reverser ref="testPass"></Reverser>
+			</Task>
+			<Task name="t7">
+				<Executor ref="testPass"></Executor>
+				<Query ref="testPass"></Query>
+				<Reverser ref="testPass"></Reverser>
+				<Condition expression="${condition.t7}"></Condition>
+			</Task>
+		</Service>
+	</Process>
+	
+	<Process name="P21">
+		<Service name="s3" async="false">
+			<Task name="t1">
+				<Executor ref="testPass"></Executor>
+				<Query ref="testPass"></Query>
+				<Reverser ref="testPass"></Reverser>
+				<Condition expression="${condition.t2}"></Condition>
+			</Task>
+			<Task name="t2">
+				<Executor ref="testTimeout"></Executor>
+				<Query ref="testPass"></Query>
+				<Reverser ref="testPass"></Reverser>
+			</Task>
+			<Task name="t3">
+				<Executor ref="testPass"></Executor>
+				<Query ref="testPass"></Query>
+				<Reverser ref="testPass"></Reverser>
+				<Condition expression="${condition.t3}"></Condition>
+			</Task>
+		</Service>
+	</Process>
+	<Process name="P22">
+		<Service name="s1">
+			<Executor ref="testPass"></Executor>
+			<Reverser ref="testPass"></Reverser>
+		</Service>
+		<Service name="s2">
+			<Executor ref="testUnknow"></Executor>
+			<Query ref="testOver"></Query>
+			<Reverser ref="testPass"></Reverser>
+		</Service>
+	</Process>
+	
+	<Process name="P23">
+		<Service name="s1">
+			<Executor ref="testPass"></Executor>
+			<Reverser ref="testPass"></Reverser>
+		</Service>
+		<Service name="s2">
+			<Executor ref="testWait"></Executor>
+			<Query ref="testOver"></Query>
+			<Reverser ref="testPass"></Reverser>
+		</Service>
+	</Process>
+	
+	<Process name="P24">
+		<Service name="s1">
+			<Executor ref="testPass"></Executor>
+			<Reverser ref="testPass"></Reverser>
+			<Query ref="testPass"></Query>
+		</Service>
+		<Service name="s2">
+			<Executor ref="testPass"></Executor>
+			<Reverser ref="testPass"></Reverser>
+		</Service>
+		<Service name="s3" async="true">
+			<Task name="t1">
+				<Executor ref="testStay"></Executor>
+				<Query ref="testStay"></Query>
+			</Task>
+			<Task name="t2">
+				<Executor ref="testStay"></Executor>
+				<Query ref="testStay"></Query>
+			</Task>
+			<Task name="t3">
+				<Executor ref="testStay"></Executor>
+				<Query ref="testStay"></Query>
+			</Task>
+		</Service>
+	</Process>
+	
+	<Process name="P25">
+		<Service name="s1">
+			<Executor ref="testPass"></Executor>
+			<Reverser ref="testPass"></Reverser>
+			<Query ref="testPass"></Query>
+		</Service>
+		<Service name="s2">
+			<Executor ref="testPass"></Executor>
+			<Reverser ref="testPass"></Reverser>
+		</Service>
+		<Service name="s3" async="true">
+			<Task name="t1">
+				<Executor ref="testStay"></Executor>
+				<Query ref="testStay"></Query>
+			</Task>
+			<Task name="t2">
+				<Executor ref="testStay"></Executor>
+				<Query ref="testStay"></Query>
+			</Task>
+			<Task name="t3">
+				<Executor ref="testStay"></Executor>
+				<Query ref="testStay"></Query>
+			</Task>
+			<Transition event="failure" action="reverse"></Transition>
+		</Service>
+	</Process>
+	
+	<Process name="P26">
+		<Service name="s1" async="true">
+			<Executor ref="testPass"></Executor>
+		</Service>
+		<Service name="s2" async="true">
+			<Executor ref="testPass"></Executor>
+		</Service>
+		<Service name="s3" async="true">
+			<Executor ref="testPass"></Executor>
+		</Service>
+	</Process>
+	
+	
+	<Process name="P27">
+		<Service name="s1">
+			<Executor ref="testPass"></Executor>
+			<Reverser ref="testPass"></Reverser>
+			<Query ref="testPass"></Query>
+		</Service>
+		<Service name="s2">
+			<Executor ref="testPass"></Executor>
+			<Reverser ref="testPass"></Reverser>
+		</Service>
+		<Service name="s3" async="false">
+			<Task name="t1">
+				<Executor ref="testUnknow"></Executor>
+				<Query ref="testStay"></Query>
+			</Task>
+			<Task name="t2">
+				<Executor ref="testUnknow"></Executor>
+				<Query ref="testStay"></Query>
+			</Task>
+			<Task name="t3">
+				<Executor ref="testUnknow"></Executor>
+				<Query ref="testStay"></Query>
+			</Task>
+		</Service>
+	</Process>
+</Template>
